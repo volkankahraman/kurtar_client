@@ -39,6 +39,43 @@ class HttpController extends GetxController {
     });
   }
 
+  register(context,
+      {email: String, username: String, fullName: String, password: String}) {
+    print('----');
+    print(email);
+    print(username);
+    print(fullName);
+    print(password);
+
+    http.post('$baseUrl/users', body: {
+      "email": email,
+      "username": username,
+      "fullName": fullName,
+      "password": password,
+      "userType": "CITIZEN"
+    }).then((response) {
+      Map<String, dynamic> resJson = jsonDecode(response.body);
+
+      print(response.body);
+      if (resJson["email"] != null) {
+        // Get.offAndToNamed(Routes.HOME);
+
+        SweetAlert.show(
+          context,
+          title: "Üyelik Başarılı",
+          style: SweetAlertStyle.success,
+          onPress: (_) {
+            // Get.offAndToNamed(Routes.HOME);
+            return _;
+          },
+        );
+      } else {
+        SweetAlert.show(context,
+            title: "Giriş Başarısız", style: SweetAlertStyle.error);
+      }
+    });
+  }
+
   @override
   void onInit() {
     super.onInit();
