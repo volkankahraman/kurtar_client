@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:kurtar_client/controllers/http_controller.dart';
 import 'package:kurtar_client/controllers/login_form_controller.dart';
+import 'package:kurtar_client/routes/app_pages.dart';
 
 class LoginFormView extends GetView {
   @override
@@ -13,18 +14,18 @@ class LoginFormView extends GetView {
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment(0.0, -1.0),
-            end: Alignment(0.0, 1.0),
-            colors: [
-              const Color(0xff677bff),
-              const Color(0xff8b68ff),
-              const Color(0xff537bff)
-            ],
-            stops: [0.0, 0.201, 1.0],
-          ),
-        ),
+        // decoration: BoxDecoration(
+        //   gradient: LinearGradient(
+        //     begin: Alignment(0.0, -1.0),
+        //     end: Alignment(0.0, 1.0),
+        //     colors: [
+        //       const Color(0xff677bff),
+        //       const Color(0xff8b68ff),
+        //       const Color(0xff537bff)
+        //     ],
+        //     stops: [0.0, 0.201, 1.0],
+        //   ),
+        // ),
         padding: const EdgeInsets.all(30.0),
         child: SafeArea(
           child: FormWidget(
@@ -65,8 +66,10 @@ class _FormWidgetState extends State<FormWidget> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
-            height: 30.0,
+          Flexible(
+            child: SizedBox(
+              height: 30.0,
+            ),
           ),
           Text(
             'Hoşgeldin',
@@ -109,6 +112,7 @@ class _FormWidgetState extends State<FormWidget> {
             height: 30.0,
           ),
           TextFormField(
+            scrollPadding: const EdgeInsets.only(bottom: 20.0),
             onChanged: (value) {
               widget._controller.password.value = value;
             },
@@ -143,31 +147,53 @@ class _FormWidgetState extends State<FormWidget> {
             ),
           ),
           Spacer(),
-          Center(
-            child: FlatButton(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 15.0, horizontal: 40.0),
-              color: Color(0xFFBB53FF),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(32.0),
-              ),
-              onPressed: () {
-                if (_formKey.currentState.validate())
-                  widget._loginController.login(
-                    context,
-                    username: widget._controller.email.value,
-                    password: widget._controller.password.value,
-                  );
-              },
-              child: Text(
-                'Giriş Yap',
-                style: TextStyle(
-                  fontFamily: 'Lato',
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              RaisedButton(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 15.0, horizontal: 40.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0),
+                ),
+                onPressed: () {
+                  if (_formKey.currentState.validate())
+                    widget._loginController.login(
+                      context,
+                      username: widget._controller.email.value,
+                      password: widget._controller.password.value,
+                    );
+                },
+                child: Text(
+                  'Giriş Yap',
+                  style: TextStyle(
+                    fontFamily: 'Lato',
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
-            ),
+              Spacer(),
+              RaisedButton(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 15.0, horizontal: 40.0),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(32.0),
+                ),
+                onPressed: () {
+                  Get.toNamed(Routes.REGISTER);
+                },
+                color: Colors.green,
+                child: Text(
+                  'Üye Ol',
+                  style: TextStyle(
+                    fontFamily: 'Lato',
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ],
           ),
           Spacer(),
         ],

@@ -1,3 +1,7 @@
+import 'package:kurtar_client/views/register_views/register_citizen_view.dart';
+import 'package:kurtar_client/views/register_views/register_saver_view.dart';
+import 'package:kurtar_client/views/register_views/register_view.dart';
+import 'package:kurtar_client/bindings/register_binding.dart';
 import 'package:get/get.dart';
 import 'package:kurtar_client/bindings/home_binding.dart';
 import 'package:kurtar_client/views/home_view.dart';
@@ -18,6 +22,20 @@ class AppPages {
       name: Routes.LOGIN,
       page: () => LoginFormView(),
       // binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.REGISTER,
+      page: () => RegisterView(),
+      binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: Routes.REGISTERCITIZEN,
+      page: () => RegisterCitizenView(),
+      binding: RegisterBinding(),
+    ),
+    GetPage(
+      name: Routes.REGISTERSAVER,
+      page: () => RegisterSaverView(),
     ),
   ];
 }

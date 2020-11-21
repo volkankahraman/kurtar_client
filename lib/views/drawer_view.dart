@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'app_pages.dart';
+import '../routes/app_pages.dart';
 
 class DrawerView extends GetView {
   @override
