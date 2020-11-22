@@ -51,6 +51,7 @@ class RegisterThirdStep extends StatelessWidget {
               obscureText: true,
               decoration: InputDecoration(
                 errorStyle: TextStyle(color: Colors.red.shade200),
+                labelText: 'Şifre',
                 hintText: 'Şifre',
                 focusedBorder: UnderlineInputBorder(
                   borderSide: const BorderSide(color: Colors.white, width: 2.0),
@@ -78,6 +79,7 @@ class RegisterThirdStep extends StatelessWidget {
               obscureText: true,
               decoration: InputDecoration(
                 errorStyle: TextStyle(color: Colors.red.shade200),
+                labelText: 'Şifre Tekrarı',
                 hintText: 'Şifre Tekrarı',
                 focusedBorder: UnderlineInputBorder(
                   borderSide: const BorderSide(color: Colors.white, width: 2.0),

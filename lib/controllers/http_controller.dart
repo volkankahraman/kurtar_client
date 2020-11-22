@@ -56,7 +56,7 @@ class HttpController extends GetxController {
     }).then((response) {
       Map<String, dynamic> resJson = jsonDecode(response.body);
 
-      print(response.body);
+      // print(response.body);
       if (resJson["email"] != null) {
         // Get.offAndToNamed(Routes.HOME);
 
@@ -70,8 +70,9 @@ class HttpController extends GetxController {
           },
         );
       } else {
+        print(resJson["errors"]["fullName"]);
         SweetAlert.show(context,
-            title: "Giriş Başarısız", style: SweetAlertStyle.error);
+            title: "Hata ${resJson['message']}", style: SweetAlertStyle.error);
       }
     });
   }

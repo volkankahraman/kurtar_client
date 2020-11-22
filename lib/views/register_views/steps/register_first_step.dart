@@ -44,6 +44,7 @@ class RegisterFirstStep extends StatelessWidget {
               textAlignVertical: TextAlignVertical.bottom,
               decoration: InputDecoration(
                 errorStyle: TextStyle(color: Colors.red.shade200),
+                labelText: "Email",
                 hintText: 'Email',
                 focusedBorder: UnderlineInputBorder(
                   borderSide: const BorderSide(color: Colors.white, width: 2.0),
@@ -86,6 +87,7 @@ class RegisterFirstStep extends StatelessWidget {
               },
               decoration: InputDecoration(
                 errorStyle: TextStyle(color: Colors.red.shade200),
+                labelText: "Ad Soyad",
                 hintText: 'Ad Soyad',
                 focusedBorder: UnderlineInputBorder(
                   borderSide: const BorderSide(color: Colors.white, width: 2.0),
@@ -119,6 +121,7 @@ class RegisterFirstStep extends StatelessWidget {
               },
               decoration: InputDecoration(
                 errorStyle: TextStyle(color: Colors.red.shade200),
+                labelText: 'Kullanıcı Adı',
                 hintText: 'Kullanıcı Adı',
                 focusedBorder: UnderlineInputBorder(
                   borderSide: const BorderSide(color: Colors.white, width: 2.0),

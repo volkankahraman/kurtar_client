@@ -68,8 +68,6 @@ class RegisterCitizenView extends GetView<RegisterController> {
                 onStepTapped: (index) {
                   controller.changePage(index);
                 },
-
-                // controlsBuilder: (context) => Text('a'),
                 steps: [
                   Step(
                     title: Text('Hoşgeldin'),

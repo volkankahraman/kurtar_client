@@ -67,7 +67,7 @@ class RegisterSecondStep extends StatelessWidget {
               onChanged: (value) {
                 controller.phone.value = value;
               },
-              initialValue: controller.phone.value ?? "5",
+              initialValue: controller.phone.value,
               maxLength: 10,
               inputFormatters: <TextInputFormatter>[
                 FilteringTextInputFormatter.digitsOnly,
@@ -80,7 +80,8 @@ class RegisterSecondStep extends StatelessWidget {
               textAlignVertical: TextAlignVertical.bottom,
               decoration: InputDecoration(
                 errorStyle: TextStyle(color: Colors.red.shade200),
-                hintText: 'Cep Telefonu (5565884798)',
+                labelText: 'Cep Telefonu',
+                hintText: '5565884798',
                 focusedBorder: UnderlineInputBorder(
                   borderSide: const BorderSide(color: Colors.white, width: 2.0),
                 ),
@@ -91,12 +92,11 @@ class RegisterSecondStep extends StatelessWidget {
               validator: (value) {
                 if (value.length == 0) {
                   return 'Bu alan boş geçilemez';
-                } else if (!GetUtils.isEmail(value)) {
-                  return 'Lütfen geçerli bir email girin';
                 } else {
                   return null;
                 }
               },
+              onEditingComplete: () {},
             ),
             SizedBox(
               height: 50.0,
