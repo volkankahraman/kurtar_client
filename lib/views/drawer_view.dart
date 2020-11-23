@@ -5,7 +5,7 @@ import 'package:kurtar_client/controllers/drawerController.dart';
 import '../routes/app_pages.dart';
 
 class DrawerView extends GetView {
-  DrawerCustomController controller = Get.put(DrawerCustomController());
+  final controller = Get.put(DrawerCustomController());
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +35,13 @@ class DrawerView extends GetView {
           ListTile(
             leading: Icon(Icons.info),
             title: Text('Hakkında'),
+            onTap: () {
+              // Get.offAndToNamed(Routes.LOGIN);
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.share),
+            title: Text('Paylaş'),
             onTap: () {
               // Get.offAndToNamed(Routes.LOGIN);
             },

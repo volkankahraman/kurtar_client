@@ -7,4 +7,5 @@ abstract class Routes {
   static const REGISTER = '/register';
   static const REGISTERSAVER = '/register_saver';
   static const REGISTERCITIZEN = '/register_citizen';
+  static const INTRO = '/intro';
 }

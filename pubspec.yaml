@@ -21,6 +21,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  smooth_page_indicator: 0.2.0
+  flare_flutter: 2.0.6
+  flutter_svg: 0.19.2+1
+  url_launcher: 5.7.10
   pin_code_text_field: 1.7.1
   sweetalert: 0.0.1
   http: 0.12.2

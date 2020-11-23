@@ -101,11 +101,11 @@ class RegisterController extends GetxController {
     } catch (e) {}
   }
 
-  @override
-  void onInit() {}
+  // @override
+  // void onInit() {}
 
-  @override
-  void onReady() {}
+  // @override
+  // void onReady() {}
 
   @override
   void onClose() {}

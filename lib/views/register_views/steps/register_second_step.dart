@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/get_utils.dart';
 import 'package:kurtar_client/controllers/register_controller.dart';
 import 'package:kurtar_client/shared/always_disabled_focus.dart';
 

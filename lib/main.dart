@@ -7,7 +7,7 @@ void main() {
   runApp(
     GetMaterialApp(
       title: "Kurtar",
-      theme: ThemeData.light(),
+      theme: ThemeData.dark(),
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
       localizationsDelegates: [
