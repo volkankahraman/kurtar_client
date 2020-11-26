@@ -8,4 +8,5 @@ abstract class Routes {
   static const REGISTERSAVER = '/register_saver';
   static const REGISTERCITIZEN = '/register_citizen';
   static const INTRO = '/intro';
+  static const BEACON = '/beacon';
 }

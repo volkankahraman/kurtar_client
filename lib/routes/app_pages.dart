@@ -1,3 +1,5 @@
+import 'package:kurtar_client/views/beacon_view.dart';
+import 'package:kurtar_client/bindings/beacon_binding.dart';
 import 'package:kurtar_client/views/intro_view.dart';
 import 'package:kurtar_client/bindings/intro_binding.dart';
 import 'package:kurtar_client/views/register_views/register_citizen_view.dart';
@@ -11,7 +13,7 @@ import 'package:kurtar_client/views/login_form_view.dart';
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = Routes.INTRO;
+  static const INITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(
@@ -44,6 +46,11 @@ class AppPages {
       name: Routes.INTRO,
       page: () => IntroView(),
       binding: IntroBinding(),
+    ),
+    GetPage(
+      name: Routes.BEACON,
+      page: () => BeaconView(),
+      binding: BeaconBinding(),
     ),
   ];
 }
