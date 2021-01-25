@@ -118,7 +118,7 @@ packages:
       name: get
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.17.1"
+    version: "3.22.2"
   http:
     dependency: "direct main"
     description:
@@ -133,6 +133,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.4"
+  im_animations:
+    dependency: "direct main"
+    description:
+      name: im_animations
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   intl:
     dependency: transitive
     description:
@@ -210,6 +217,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.3"
+  scrollable_panel:
+    dependency: "direct main"
+    description:
+      name: scrollable_panel
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.2"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -271,6 +285,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.19-nullsafety.6"
+  timeline_list:
+    dependency: "direct main"
+    description:
+      name: timeline_list
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.5"
   typed_data:
     dependency: transitive
     description:

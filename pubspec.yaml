@@ -24,11 +24,15 @@ dependencies:
   smooth_page_indicator: 0.2.0
   flare_flutter: 2.0.6
   flutter_svg: 0.19.2+1
+  im_animations: any
   url_launcher: 5.7.10
   pin_code_text_field: 1.7.1
   sweetalert: 0.0.1
   http: 0.12.2
-  get: 3.17.1
+  get: 3.22.2
+  scrollable_panel: ^0.2.2
+  timeline_list: ^0.0.5
+
   flutter:
     sdk: flutter
   flutter_localizations:

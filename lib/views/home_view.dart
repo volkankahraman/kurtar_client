@@ -9,14 +9,14 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
-        title: Text("Kurtar"),
+        elevation: 0,
       ),
       endDrawer: DrawerView(),
-      extendBodyBehindAppBar: true,
       body: Container(
-        constraints: BoxConstraints.expand(),
         // decoration: BoxDecoration(
         //   gradient: LinearGradient(
         //     begin: Alignment(0.0, -1.0),
@@ -29,20 +29,160 @@ class HomeView extends GetView<HomeController> {
         //     stops: [0.0, 0.201, 1.0],
         //   ),
         // ),
-        padding: const EdgeInsets.all(30.0),
-        child: SafeArea(
-          child: RawMaterialButton(
-            onPressed: () {
-              Get.toNamed(Routes.BEACON);
-            },
-            elevation: 8.0,
-            fillColor: Colors.blueAccent,
-            child: Text(
-              "Acil Durum",
-              style: context.textTheme.headline4,
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 30.0, bottom: 10.0),
+              child: SizedBox(
+                height: 150.0,
+                child: Hero(
+                  tag: 'emergency',
+                  child: RawMaterialButton(
+                    onPressed: () {
+                      Get.toNamed(Routes.BEACON);
+                    },
+                    elevation: 8.0,
+                    fillColor: Colors.red[500],
+                    child: Padding(
+                      padding: const EdgeInsets.all(38.0),
+                      child: Text(
+                        "Acil\nDurum",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          fontSize: 20.0,
+                        ),
+                      ),
+                    ),
+                    shape: CircleBorder(),
+                  ),
+                ),
+              ),
             ),
-            shape: CircleBorder(),
-          ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50),
+                    ),
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30.0, top: 40.0),
+                        child: Text(
+                          'Önemli Afetler',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12.0, left: 30.0),
+                        child: SizedBox(
+                          height: 100.0,
+                          width: double.infinity,
+                          child: ListView(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.only(right: 15.0),
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 15.0),
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 15.0),
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(right: 15.0),
+                                width: 100,
+                                decoration: BoxDecoration(
+                                  color: Colors.grey,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(8)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30.0, top: 12.0),
+                        child: Text(
+                          'En Yakın Toplanma Alanı',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 30.0, top: 12.0, right: 30.0),
+                        child: Container(
+                          height: 120,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 30.0, top: 12.0),
+                        child: Text(
+                          'AFAD',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 30.0, top: 12.0, right: 30.0, bottom: 30.0),
+                        child: Container(
+                          height: 100,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.all(Radius.circular(8)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

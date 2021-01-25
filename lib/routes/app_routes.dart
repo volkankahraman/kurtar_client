@@ -9,4 +9,5 @@ abstract class Routes {
   static const REGISTERCITIZEN = '/register_citizen';
   static const INTRO = '/intro';
   static const BEACON = '/beacon';
+  static const EARTH_QUAKES = '/earth-quakes';
 }

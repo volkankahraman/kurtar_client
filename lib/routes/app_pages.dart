@@ -1,19 +1,23 @@
-import 'package:kurtar_client/views/beacon_view.dart';
+import 'package:get/get.dart';
+
+import 'package:kurtar_client/bindings/earth_quakes_binding.dart';
+import 'package:kurtar_client/views/earth_quakes_view.dart';
 import 'package:kurtar_client/bindings/beacon_binding.dart';
-import 'package:kurtar_client/views/intro_view.dart';
+import 'package:kurtar_client/bindings/home_binding.dart';
 import 'package:kurtar_client/bindings/intro_binding.dart';
+import 'package:kurtar_client/bindings/register_binding.dart';
+import 'package:kurtar_client/views/beacon_view.dart';
+import 'package:kurtar_client/views/home_view.dart';
+import 'package:kurtar_client/views/intro_view.dart';
+import 'package:kurtar_client/views/login_form_view.dart';
 import 'package:kurtar_client/views/register_views/register_citizen_view.dart';
 import 'package:kurtar_client/views/register_views/register_saver_view.dart';
 import 'package:kurtar_client/views/register_views/register_view.dart';
-import 'package:kurtar_client/bindings/register_binding.dart';
-import 'package:get/get.dart';
-import 'package:kurtar_client/bindings/home_binding.dart';
-import 'package:kurtar_client/views/home_view.dart';
-import 'package:kurtar_client/views/login_form_view.dart';
+
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.EARTH_QUAKES;
 
   static final routes = [
     GetPage(
@@ -51,6 +55,11 @@ class AppPages {
       name: Routes.BEACON,
       page: () => BeaconView(),
       binding: BeaconBinding(),
+    ),
+    GetPage(
+      name: Routes.EARTH_QUAKES,
+      page: () => EarthQuakesView(),
+      binding: EarthQuakesBinding(),
     ),
   ];
 }
