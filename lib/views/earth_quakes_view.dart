@@ -18,29 +18,19 @@ class EarthQuakesView extends GetView<EarthQuakesController> {
       body: Column(
         children: [
           ListTile(
-            title: FlatButton(
-              child: Align(
-                alignment: Alignment.centerLeft,
+            leading: Icon(Icons.sort),
+            title: Align(
+              alignment: Alignment.centerLeft,
+              child: FlatButton(
                 child: Text('Konum / Tarih'),
+                onPressed: eqc.toggleDateSort,
               ),
-              onPressed: eqc.toggleDateSort,
             ),
             trailing: FlatButton(
               child: Text('Büyüklük'),
               onPressed: eqc.toggleEarthSort,
             ),
           ),
-          // Timeline.builder(itemBuilder: (context, i) {
-          //   return TimelineModel(
-
-          //   );
-          // }),
-          // Expanded(
-          //   child: Timeline(
-          //     position: TimelinePosition.Left,
-          //     children: eqc.items,
-          //   ),
-          // ),
           Expanded(
             child: Obx(
               () => Timeline.builder(

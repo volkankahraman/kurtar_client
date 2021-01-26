@@ -10,4 +10,5 @@ abstract class Routes {
   static const INTRO = '/intro';
   static const BEACON = '/beacon';
   static const EARTH_QUAKES = '/earth-quakes';
+  static const EARTH_QUAKE = '/earth-quake';
 }

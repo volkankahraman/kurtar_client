@@ -1,12 +1,14 @@
 import 'package:get/get.dart';
 
-import 'package:kurtar_client/bindings/earth_quakes_binding.dart';
-import 'package:kurtar_client/views/earth_quakes_view.dart';
+import 'package:kurtar_client/bindings/earth_quake_binding.dart';
+import 'package:kurtar_client/views/earth_quake_view.dart';
 import 'package:kurtar_client/bindings/beacon_binding.dart';
+import 'package:kurtar_client/bindings/earth_quakes_binding.dart';
 import 'package:kurtar_client/bindings/home_binding.dart';
 import 'package:kurtar_client/bindings/intro_binding.dart';
 import 'package:kurtar_client/bindings/register_binding.dart';
 import 'package:kurtar_client/views/beacon_view.dart';
+import 'package:kurtar_client/views/earth_quakes_view.dart';
 import 'package:kurtar_client/views/home_view.dart';
 import 'package:kurtar_client/views/intro_view.dart';
 import 'package:kurtar_client/views/login_form_view.dart';
@@ -17,7 +19,7 @@ import 'package:kurtar_client/views/register_views/register_view.dart';
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = Routes.EARTH_QUAKES;
+  static const INITIAL = Routes.EARTH_QUAKE;
 
   static final routes = [
     GetPage(
@@ -60,6 +62,11 @@ class AppPages {
       name: Routes.EARTH_QUAKES,
       page: () => EarthQuakesView(),
       binding: EarthQuakesBinding(),
+    ),
+    GetPage(
+      name: Routes.EARTH_QUAKE,
+      page: () => EarthQuakeView(),
+      binding: EarthQuakeBinding(),
     ),
   ];
 }
