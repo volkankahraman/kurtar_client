@@ -11,4 +11,9 @@ abstract class Routes {
   static const BEACON = '/beacon';
   static const EARTH_QUAKES = '/earth-quakes';
   static const EARTH_QUAKE = '/earth-quake';
+  static const FLOOD = '/flood';
+  static const WILDFIRE = '/wildfire';
+  static const SNOWSLIDE = '/snowslide';
+  static const TSUNAMI = '/tsunami';
+  static const TERROR = '/terror';
 }
