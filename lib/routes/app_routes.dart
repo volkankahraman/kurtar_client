@@ -16,4 +16,5 @@ abstract class Routes {
   static const SNOWSLIDE = '/snowslide';
   static const TSUNAMI = '/tsunami';
   static const TERROR = '/terror';
+  static const EARTH_QUAKE_RISK = '/earth-quake-risk';
 }

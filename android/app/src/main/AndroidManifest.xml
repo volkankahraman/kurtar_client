@@ -3,6 +3,8 @@
    <application
         android:label="kurtar_client"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyBR_31-zOQTxerx-qKckRtYihv3E4qukl0"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

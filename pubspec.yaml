@@ -32,6 +32,9 @@ dependencies:
   get: 3.22.2
   scrollable_panel: ^0.2.2
   timeline_list: ^0.0.5
+  location: ^3.0.0
+  geocoder: ^0.2.1
+  google_maps_flutter: ^1.1.1
 
   flutter:
     sdk: flutter

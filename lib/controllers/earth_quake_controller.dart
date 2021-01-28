@@ -1,12 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class EarthQuakeController extends GetxController {
-  //TODO: Implement EarthQuakeController
+class EarthQuakeController extends GetxController
+    with SingleGetTickerProviderMixin {
+  TabController controller;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    controller = TabController(vsync: this, length: 3);
   }
 
   @override
@@ -16,5 +18,4 @@ class EarthQuakeController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }

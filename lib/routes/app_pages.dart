@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import 'package:kurtar_client/bindings/earth_quake_risk_binding.dart';
 import 'package:kurtar_client/bindings/beacon_binding.dart';
 import 'package:kurtar_client/bindings/earth_quake_binding.dart';
 import 'package:kurtar_client/bindings/earth_quakes_binding.dart';
@@ -12,6 +13,7 @@ import 'package:kurtar_client/bindings/terror_binding.dart';
 import 'package:kurtar_client/bindings/tsunami_binding.dart';
 import 'package:kurtar_client/bindings/wildfire_binding.dart';
 import 'package:kurtar_client/views/beacon_view.dart';
+import 'package:kurtar_client/views/earth_quake_risk_view.dart';
 import 'package:kurtar_client/views/earth_quake_view.dart';
 import 'package:kurtar_client/views/earth_quakes_view.dart';
 import 'package:kurtar_client/views/flood_view.dart';
@@ -29,7 +31,7 @@ import 'package:kurtar_client/views/wildfire_view.dart';
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = Routes.TERROR;
+  static const INITIAL = Routes.EARTH_QUAKE_RISK;
 
   static final routes = [
     GetPage(
@@ -102,6 +104,11 @@ class AppPages {
       name: Routes.TERROR,
       page: () => TerrorView(),
       binding: TerrorBinding(),
+    ),
+    GetPage(
+      name: Routes.EARTH_QUAKE_RISK,
+      page: () => EarthQuakeRiskView(),
+      binding: EarthQuakeRiskBinding(),
     ),
   ];
 }
