@@ -10,11 +10,11 @@ class AfadInfoWebView extends GetView<AfadInfoWebController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('Titreşim'),
+      body: Center(
+        child: WebView(
+          initialUrl: 'https://www.afad.gov.tr/afete-hazir-turkiye',
+        ),
+      ),
     );
   }
 }
-
-// WebView(
-//   initialUrl: 'https://www.afad.gov.tr/afete-hazir-turkiye',
-// ),

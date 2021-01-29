@@ -20,6 +20,9 @@ class AfadInfoWebController extends GetxController {
   void vibrate() async {
     if (await Vibration.hasVibrator()) {
       Vibration.vibrate();
+      print('titriyor');
+    } else {
+      print('uyumsuz');
     }
   }
 

@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 
+import 'package:kurtar_client/bindings/add_helper_binding.dart';
+import 'package:kurtar_client/views/add_helper_view.dart';
 import 'package:kurtar_client/bindings/afad_info_web_binding.dart';
-import 'package:kurtar_client/app/modules/afadInfoWeb/afad_info_web_view.dart';
 import 'package:kurtar_client/bindings/afad_web_binding.dart';
 import 'package:kurtar_client/bindings/beacon_binding.dart';
 import 'package:kurtar_client/bindings/disaster_bag_binding.dart';
@@ -16,6 +17,7 @@ import 'package:kurtar_client/bindings/snowslide_binding.dart';
 import 'package:kurtar_client/bindings/terror_binding.dart';
 import 'package:kurtar_client/bindings/tsunami_binding.dart';
 import 'package:kurtar_client/bindings/wildfire_binding.dart';
+import 'package:kurtar_client/views/afad_info_web_view.dart';
 import 'package:kurtar_client/views/afad_web_view.dart';
 import 'package:kurtar_client/views/beacon_view.dart';
 import 'package:kurtar_client/views/disaster_bag_view.dart';
@@ -37,7 +39,7 @@ import 'package:kurtar_client/views/wildfire_view.dart';
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = Routes.AFAD_INFO_WEB;
+  static const INITIAL = Routes.ADD_HELPER;
 
   static final routes = [
     GetPage(
@@ -130,6 +132,11 @@ class AppPages {
       name: Routes.AFAD_INFO_WEB,
       page: () => AfadInfoWebView(),
       binding: AfadInfoWebBinding(),
+    ),
+    GetPage(
+      name: Routes.ADD_HELPER,
+      page: () => AddHelperView(),
+      binding: AddHelperBinding(),
     ),
   ];
 }

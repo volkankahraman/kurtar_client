@@ -20,4 +20,5 @@ abstract class Routes {
   static const DISASTER_BAG = '/disaster-bag';
   static const AFAD_WEB = '/afad-web';
   static const AFAD_INFO_WEB = '/afad-info-web';
+  static const ADD_HELPER = '/add-helper';
 }
