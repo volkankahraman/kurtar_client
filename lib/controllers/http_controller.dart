@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:kurtar_client/models/risk_message.dart';
 import 'package:kurtar_client/routes/app_pages.dart';
 import 'package:sweetalert/sweetalert.dart';
 
@@ -16,7 +17,6 @@ class HttpController extends GetxController {
     }).then((response) {
       Map<String, dynamic> resJson = jsonDecode(response.body);
 
-      print(response.body);
       if (resJson["user"] != null) {
         Get.offAndToNamed(Routes.HOME);
 
@@ -75,6 +75,11 @@ class HttpController extends GetxController {
             title: "Hata ${resJson['message']}", style: SweetAlertStyle.error);
       }
     });
+  }
+
+  Future<RiskMessage> getCityRisk(String city) async {
+    http.Response res = await http.get("$baseUrl/risk-cities/?city=$city");
+    return RiskMessage.fromJson(json.decode(res.body));
   }
 
   @override

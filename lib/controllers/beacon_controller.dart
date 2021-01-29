@@ -1,10 +1,6 @@
 import 'package:get/get.dart';
 
 class BeaconController extends GetxController {
-  //TODO: Implement BeaconController
-  
-  final count = 0.obs;
-
   @override
   void onInit() {}
 
@@ -13,6 +9,4 @@ class BeaconController extends GetxController {
 
   @override
   void onClose() {}
-
-  void increment() => count.value++;
 }

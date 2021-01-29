@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:geocoder/geocoder.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:kurtar_client/controllers/http_controller.dart';
+import 'package:kurtar_client/models/risk_message.dart';
 import 'package:location/location.dart';
 
 class EarthQuakeRiskController extends GetxController {
@@ -12,7 +14,10 @@ class EarthQuakeRiskController extends GetxController {
   PermissionStatus _permissionGranted;
   LocationData _locationData;
   final city = "".obs;
+  final riskMessage = RiskMessage().obs;
+  final isLoading = false.obs;
   Completer<GoogleMapController> controller = Completer();
+  HttpController hc = Get.put(HttpController());
 
   @override
   void onInit() {
@@ -40,6 +45,7 @@ class EarthQuakeRiskController extends GetxController {
   }
 
   void getLocation() async {
+    isLoading.value = true;
     _locationData = await location.getLocation();
     var addresses = await Geocoder.local.findAddressesFromCoordinates(
         Coordinates(_locationData.latitude, _locationData.longitude));
@@ -55,6 +61,9 @@ class EarthQuakeRiskController extends GetxController {
         ),
       ),
     );
+
+    riskMessage.value = await hc.getCityRisk(city.value);
+    isLoading.value = false;
   }
 
   @override

@@ -1,8 +1,12 @@
 import 'package:get/get.dart';
 
-import 'package:kurtar_client/bindings/earth_quake_risk_binding.dart';
+import 'package:kurtar_client/bindings/afad_info_web_binding.dart';
+import 'package:kurtar_client/app/modules/afadInfoWeb/afad_info_web_view.dart';
+import 'package:kurtar_client/bindings/afad_web_binding.dart';
 import 'package:kurtar_client/bindings/beacon_binding.dart';
+import 'package:kurtar_client/bindings/disaster_bag_binding.dart';
 import 'package:kurtar_client/bindings/earth_quake_binding.dart';
+import 'package:kurtar_client/bindings/earth_quake_risk_binding.dart';
 import 'package:kurtar_client/bindings/earth_quakes_binding.dart';
 import 'package:kurtar_client/bindings/flood_binding.dart';
 import 'package:kurtar_client/bindings/home_binding.dart';
@@ -12,7 +16,9 @@ import 'package:kurtar_client/bindings/snowslide_binding.dart';
 import 'package:kurtar_client/bindings/terror_binding.dart';
 import 'package:kurtar_client/bindings/tsunami_binding.dart';
 import 'package:kurtar_client/bindings/wildfire_binding.dart';
+import 'package:kurtar_client/views/afad_web_view.dart';
 import 'package:kurtar_client/views/beacon_view.dart';
+import 'package:kurtar_client/views/disaster_bag_view.dart';
 import 'package:kurtar_client/views/earth_quake_risk_view.dart';
 import 'package:kurtar_client/views/earth_quake_view.dart';
 import 'package:kurtar_client/views/earth_quakes_view.dart';
@@ -31,7 +37,7 @@ import 'package:kurtar_client/views/wildfire_view.dart';
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = Routes.EARTH_QUAKE_RISK;
+  static const INITIAL = Routes.AFAD_INFO_WEB;
 
   static final routes = [
     GetPage(
@@ -109,6 +115,21 @@ class AppPages {
       name: Routes.EARTH_QUAKE_RISK,
       page: () => EarthQuakeRiskView(),
       binding: EarthQuakeRiskBinding(),
+    ),
+    GetPage(
+      name: Routes.DISASTER_BAG,
+      page: () => DisasterBagView(),
+      binding: DisasterBagBinding(),
+    ),
+    GetPage(
+      name: Routes.AFAD_WEB,
+      page: () => AfadWebView(),
+      binding: AfadWebBinding(),
+    ),
+    GetPage(
+      name: Routes.AFAD_INFO_WEB,
+      page: () => AfadInfoWebView(),
+      binding: AfadInfoWebBinding(),
     ),
   ];
 }

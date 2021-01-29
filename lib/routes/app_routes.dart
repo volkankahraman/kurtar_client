@@ -17,4 +17,7 @@ abstract class Routes {
   static const TSUNAMI = '/tsunami';
   static const TERROR = '/terror';
   static const EARTH_QUAKE_RISK = '/earth-quake-risk';
+  static const DISASTER_BAG = '/disaster-bag';
+  static const AFAD_WEB = '/afad-web';
+  static const AFAD_INFO_WEB = '/afad-info-web';
 }
