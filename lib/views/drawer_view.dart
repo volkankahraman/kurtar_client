@@ -5,7 +5,7 @@ import 'package:kurtar_client/controllers/drawerController.dart';
 import '../routes/app_pages.dart';
 
 class DrawerView extends GetView {
-  final controller = Get.put(DrawerCustomController());
+  final DrawerCustomController controller = Get.put(DrawerCustomController());
 
   @override
   Widget build(BuildContext context) {

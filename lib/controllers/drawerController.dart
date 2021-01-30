@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class DrawerCustomController extends GetxController {
-  final theme = false.obs;
+  final theme = true.obs;
 
   @override
   void onInit() {

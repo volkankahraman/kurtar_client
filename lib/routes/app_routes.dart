@@ -22,4 +22,5 @@ abstract class Routes {
   static const AFAD_INFO_WEB = '/afad-info-web';
   static const ADD_HELPER = '/add-helper';
   static const TEST_SCREEN = '/test-screen';
+  static const HOME_TEST = '/home-test';
 }
