@@ -1,4 +1,5 @@
 import 'package:contacts_service/contacts_service.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -6,6 +7,7 @@ class AddHelperController extends GetxController {
   Iterable<Contact> contacts;
   RxList<Contact> contacList = [Contact()].obs;
   RxList<String> savedList = [""].obs;
+  TextEditingController tec = TextEditingController();
 
   @override
   void onInit() {
@@ -34,5 +36,16 @@ class AddHelperController extends GetxController {
     }
   }
 
-  void addToSavedList(Contact person) {}
+  void setValueOfField(Contact person) {
+    tec.text = person.phones.first.value;
+  }
+
+  void addToSavedList() {
+    savedList.add(tec.text);
+    tec.clear();
+  }
+
+  void removeFromSavedList(String savedValue) {
+    savedList.remove(savedValue);
+  }
 }

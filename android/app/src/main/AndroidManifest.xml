@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />  
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />  
    <application
-        android:label="kurtar_client"
+        android:label="Kurtar"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
                android:value="AIzaSyBR_31-zOQTxerx-qKckRtYihv3E4qukl0"/>

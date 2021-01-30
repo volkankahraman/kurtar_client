@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 
+import 'package:kurtar_client/bindings/test_screen_binding.dart';
+import 'package:kurtar_client/views/test_screen_view.dart';
 import 'package:kurtar_client/bindings/add_helper_binding.dart';
-import 'package:kurtar_client/views/add_helper_view.dart';
 import 'package:kurtar_client/bindings/afad_info_web_binding.dart';
 import 'package:kurtar_client/bindings/afad_web_binding.dart';
 import 'package:kurtar_client/bindings/beacon_binding.dart';
@@ -17,6 +18,7 @@ import 'package:kurtar_client/bindings/snowslide_binding.dart';
 import 'package:kurtar_client/bindings/terror_binding.dart';
 import 'package:kurtar_client/bindings/tsunami_binding.dart';
 import 'package:kurtar_client/bindings/wildfire_binding.dart';
+import 'package:kurtar_client/views/add_helper_view.dart';
 import 'package:kurtar_client/views/afad_info_web_view.dart';
 import 'package:kurtar_client/views/afad_web_view.dart';
 import 'package:kurtar_client/views/beacon_view.dart';
@@ -39,7 +41,7 @@ import 'package:kurtar_client/views/wildfire_view.dart';
 part 'app_routes.dart';
 
 class AppPages {
-  static const INITIAL = Routes.ADD_HELPER;
+  static const INITIAL = Routes.TEST_SCREEN;
 
   static final routes = [
     GetPage(
@@ -137,6 +139,11 @@ class AppPages {
       name: Routes.ADD_HELPER,
       page: () => AddHelperView(),
       binding: AddHelperBinding(),
+    ),
+    GetPage(
+      name: Routes.TEST_SCREEN,
+      page: () => TestScreenView(),
+      binding: TestScreenBinding(),
     ),
   ];
 }

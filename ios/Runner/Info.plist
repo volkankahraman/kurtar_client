@@ -43,5 +43,13 @@
 	<false/>
 	<key>NSContactsUsageDescription</key>  
 	<string>This app requires contacts access to function properly.</string>  
+	<key>NSBonjourServices</key>
+    <array>
+        <string>_{P2P_CLUSTER}._tcp</string>
+    </array>
+    <key>UIRequiresPersistentWiFi</key>
+    <true/>
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>{Onemli}</string>
 </dict>
 </plist>

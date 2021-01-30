@@ -41,6 +41,8 @@ dependencies:
   vibration: ^1.7.3
   contacts_service: ^0.4.6
   permission_handler: ^5.0.1+1
+  flutter_nearby_connections: ^1.0.10
+  fluttertoast: ^7.1.6
 
   flutter:
     sdk: flutter
