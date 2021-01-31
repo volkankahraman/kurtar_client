@@ -183,7 +183,7 @@ class _FormWidgetState extends State<FormWidget> {
                 onPressed: () {
                   Get.toNamed(Routes.REGISTER);
                 },
-                color: Colors.green,
+                color: Colors.red[500],
                 child: Text(
                   'Üye Ol',
                   style: TextStyle(

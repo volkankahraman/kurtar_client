@@ -51,6 +51,7 @@ class EarthQuakeRiskView extends GetView<EarthQuakeRiskController> {
                     width: 100.0,
                     height: 100.0,
                     child: CircularProgressIndicator(
+                      backgroundColor: Colors.red[500],
                       strokeWidth: 6.0,
                     ),
                   )

@@ -1,9 +1,6 @@
 import 'package:get/get.dart';
 
 class FloodController extends GetxController {
-  //TODO: Implement FloodController
-
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +13,4 @@ class FloodController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }

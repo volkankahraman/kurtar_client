@@ -43,6 +43,9 @@ dependencies:
   permission_handler: ^5.0.1+1
   flutter_nearby_connections: ^1.0.10
   fluttertoast: ^7.1.6
+  share: ^0.6.5+4
+  rate_my_app: ^0.6.0+2
+  get_storage: 1.3.2
 
   flutter:
     sdk: flutter

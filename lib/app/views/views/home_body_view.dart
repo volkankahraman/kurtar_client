@@ -11,32 +11,38 @@ class HomeBodyView extends GetView {
       child: Column(
         children: [
           Expanded(
-            flex: 1,
-            child: Hero(
-              tag: 'emergency',
-              child: RawMaterialButton(
-                onPressed: () {
-                  Get.toNamed(Routes.BEACON);
-                },
-                padding: EdgeInsets.all(48.0),
-                elevation: 8.0,
-                fillColor: Colors.red[500],
-                child: Text(
-                  "Acil\nDurum",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 20.0,
+            flex: 2,
+            child: Container(
+              margin: EdgeInsets.only(top: 25.0),
+              child: Hero(
+                tag: 'emergency',
+                child: RawMaterialButton(
+                  onPressed: () {
+                    Get.toNamed(Routes.BEACON);
+                  },
+                  padding: EdgeInsets.all(48.0),
+                  elevation: 8.0,
+                  fillColor: Colors.red[500],
+                  child: Text(
+                    "Acil\nDurum",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      fontSize: 20.0,
+                    ),
                   ),
+                  shape: CircleBorder(),
                 ),
-                shape: CircleBorder(),
               ),
             ),
           ),
           Expanded(
-            flex: 2,
-            child: Text(''),
+            flex: 5,
+            child: Container(
+              child: Text(''),
+              color: Colors.pink,
+            ),
           )
         ],
       ),

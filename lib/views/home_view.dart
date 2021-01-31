@@ -27,7 +27,7 @@ class HomeView extends GetView<HomeController> {
                   topRight: Radius.circular(42),
                 )
               : BorderRadius.only(),
-          maxHeight: 750.0,
+          maxHeight: MediaQuery.of(context).size.height,
           minHeight: 480.0,
           body: HomeBodyView(),
           panelBuilder: (sc) => PanelView(sc),

@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:kurtar_client/controllers/add_helper_controller.dart';
-import 'package:kurtar_client/shared/list_item.dart';
 
 class AddHelperView extends GetView<AddHelperController> {
-  AddHelperController ahc = Get.find();
+  final AddHelperController ahc = Get.find();
 
   @override
   Widget build(BuildContext context) {

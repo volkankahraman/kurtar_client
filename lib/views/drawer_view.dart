@@ -36,36 +36,30 @@ class DrawerView extends GetView {
             leading: Icon(Icons.info),
             title: Text('Hakkında'),
             onTap: () {
-              // Get.offAndToNamed(Routes.LOGIN);
+              Get.toNamed(Routes.INTRO);
             },
           ),
           ListTile(
             leading: Icon(Icons.share),
             title: Text('Paylaş'),
-            onTap: () {
-              // Get.offAndToNamed(Routes.LOGIN);
-            },
+            onTap: controller.share,
           ),
           ListTile(
             leading: Icon(Icons.star_rate),
             title: Text('Uygulamayı Değerlendir'),
             onTap: () {
-              // Get.offAndToNamed(Routes.LOGIN);
+              controller.rateApp(context);
             },
           ),
           ListTile(
             leading: Icon(Icons.bug_report),
             title: Text('Hata Bildir'),
-            onTap: () {
-              // Get.offAndToNamed(Routes.LOGIN);
-            },
+            onTap: controller.sendFeedback,
           ),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text('Çıkış Yap'),
-            onTap: () {
-              Get.offAndToNamed(Routes.LOGIN);
-            },
+            onTap: controller.logOut,
           ),
         ],
       ),

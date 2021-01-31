@@ -1,9 +1,6 @@
 import 'package:get/get.dart';
 
 class SnowslideController extends GetxController {
-  //TODO: Implement SnowslideController
-
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -16,5 +13,4 @@ class SnowslideController extends GetxController {
 
   @override
   void onClose() {}
-  void increment() => count.value++;
 }

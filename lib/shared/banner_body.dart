@@ -11,7 +11,7 @@ class BannerBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-          left: 30.0, top: 12.0, right: 30.0, bottom: 20.0),
+          left: 30.0, top: 12.0, right: 30.0, bottom: 10.0),
       child: Container(
         height: 100,
         width: double.infinity,

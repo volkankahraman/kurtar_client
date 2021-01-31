@@ -2,10 +2,14 @@ import 'package:get/get.dart';
 
 class BeaconController extends GetxController {
   @override
-  void onInit() {}
+  void onInit() {
+    super.onInit();
+  }
 
   @override
-  void onReady() {}
+  void onReady() {
+    super.onReady();
+  }
 
   @override
   void onClose() {}

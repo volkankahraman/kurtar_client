@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:kurtar_client/controllers/intro_controller.dart';
 import 'package:kurtar_client/routes/app_pages.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:get_storage/get_storage.dart';
 
 class IntroView extends GetView<IntroController> {
   @override
@@ -44,22 +44,22 @@ class _MyHomePageState extends State<MyHomePage>
       TweenSequenceItem(
         weight: 1.0,
         tween: ColorTween(
-          begin: hexToColor("#FF8080"),
-          end: hexToColor("#FFA177"),
+          begin: Colors.red[500],
+          end: Colors.red[700],
         ),
       ),
       TweenSequenceItem(
         weight: 1.0,
         tween: ColorTween(
-          begin: hexToColor("#FFA177"),
-          end: hexToColor('#F5CF76'),
+          begin: Colors.red[700],
+          end: Colors.red[900],
         ),
       ),
       TweenSequenceItem(
         weight: 1.0,
         tween: ColorTween(
-          begin: hexToColor('#F5CF76'),
-          end: hexToColor('#FFA177'),
+          begin: Colors.red[900],
+          end: Colors.grey[900],
         ),
       ),
     ]);
@@ -80,19 +80,13 @@ class _MyHomePageState extends State<MyHomePage>
   }
 
   String _animationName = 'idle';
+  final box = GetStorage();
 
   void start() {
+    box.write('firstOpen', false);
     setState(() {
       _animationName = 'spin';
     });
-  }
-
-  _launchURL(String url) async {
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
   }
 
   @override
@@ -128,7 +122,7 @@ class _MyHomePageState extends State<MyHomePage>
                     Padding(
                       padding: const EdgeInsets.all(50.0),
                       child: Text(
-                        "Bu uygulama sizi internet ve veri paketi gereksimi olmadan Tüm tanıdıklarınız ile iletişim Kurmanınızı sağlar",
+                        "Kurtar sizi internet ve veri paketi gereksimi olmadan tüm tanıdıklarınız ve cankurtaranlar ile iletişim Kurmanınızı sağlar",
                         maxLines: 4,
                         style: TextStyle(
                           letterSpacing: 0.5,
@@ -152,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage>
                     Padding(
                       padding: const EdgeInsets.all(50.0),
                       child: Text(
-                        "Bu uygulama sizi internet ve veri paketi gereksimi olmadan Tüm tanıdıklarınız ile iletişim Kurmanınızı sağlar",
+                        "Size en yakın toplanma noktasını bulabilir ve afetler ile ilgili bilgi sahibi olabilirsiniz.",
                         maxLines: 4,
                         style: TextStyle(
                           letterSpacing: 0.5,
@@ -176,7 +170,7 @@ class _MyHomePageState extends State<MyHomePage>
                     Padding(
                       padding: const EdgeInsets.all(50.0),
                       child: Text(
-                        "Bu uygulama sizi internet ve veri paketi gereksimi olmadan Tüm tanıdıklarınız ile iletişim Kurmanınızı sağlar",
+                        "Kurtarın düzgün çalışabilmesi için konum ve rehber erişimine izin vermeniz gerekiyor.",
                         maxLines: 4,
                         style: TextStyle(
                           letterSpacing: 0.5,
@@ -209,7 +203,7 @@ class _MyHomePageState extends State<MyHomePage>
                     Padding(
                       padding: const EdgeInsets.all(50.0),
                       child: Text(
-                        "Bu uygulama sizi internet ve  paketi gereksimi olmadan Tüm tanıdıklarınız ile iletişim Kurmanınızı sağlar",
+                        "Daha güvenli ve bilgili olmaya hazır mısın ?",
                         maxLines: 4,
                         style: TextStyle(
                           letterSpacing: 0.5,
@@ -231,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage>
                         color: Colors.white,
                         child: Text(
                           'Başlayalım',
-                          style: TextStyle(color: Colors.black54, fontSize: 17),
+                          style: TextStyle(color: Colors.black, fontSize: 17),
                         ),
                       ),
                     ),

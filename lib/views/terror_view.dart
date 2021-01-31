@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:kurtar_client/controllers/terror_controller.dart';
-import 'package:kurtar_client/shared/list_item.dart';
 
 class TerrorView extends GetView<TerrorController> {
   @override

@@ -7,6 +7,7 @@ class RegisterController extends GetxController {
   final step = 0.obs;
   final int stepLength = 3;
   final email = "".obs;
+  final userType = "".obs;
   final fullName = "".obs;
   final username = "".obs;
   final male = false.obs;
@@ -16,7 +17,7 @@ class RegisterController extends GetxController {
   final password = "".obs;
   DateTime initialDate = DateTime(2000);
   HttpController httpController = Get.put(HttpController());
-
+  TextEditingController tec = TextEditingController();
   PageController pageController = PageController();
 
   nextPage(context) {
@@ -40,7 +41,7 @@ class RegisterController extends GetxController {
     if (step > 0) {
       step.value--;
     } else {
-      Get.toNamed(Routes.REGISTER);
+      Get.offAllNamed(Routes.REGISTER);
     }
   }
 
@@ -62,7 +63,8 @@ class RegisterController extends GetxController {
         // gender: _getGender(),
         password: password.value,
         // phone: phone.value,
-        username: username.value);
+        username: username.value,
+        userType: userType);
   }
 
   selectMale(value) {
@@ -104,8 +106,15 @@ class RegisterController extends GetxController {
   // @override
   // void onInit() {}
 
-  // @override
-  // void onReady() {}
+  @override
+  void onReady() {
+    super.onReady();
+    if (Get.arguments != null) {
+      this.userType.value = Get.arguments;
+    } else {
+      this.userType.value = "CITIZEN";
+    }
+  }
 
   @override
   void onClose() {}

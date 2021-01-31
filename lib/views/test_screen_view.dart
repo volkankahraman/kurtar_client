@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:kurtar_client/controllers/test_screen_controller.dart';
 
 class TestScreenView extends GetView<TestScreenController> {
-  TestScreenController tsc = Get.find();
+  final TestScreenController tsc = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
