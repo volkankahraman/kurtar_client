@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kurtar_client/app/views/views/home_body_view.dart';
-import 'package:kurtar_client/app/views/views/panel_view.dart';
+import 'package:kurtar_client/views/home_body_view.dart';
+import 'package:kurtar_client/views/panel_view.dart';
 import 'package:kurtar_client/controllers/home_controller.dart';
 
 import 'package:kurtar_client/views/drawer_view.dart';

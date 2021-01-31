@@ -13,25 +13,15 @@ class LoginFormView extends GetView {
     final node = FocusScope.of(context);
 
     return Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Container(
-        // decoration: BoxDecoration(
-        //   gradient: LinearGradient(
-        //     begin: Alignment(0.0, -1.0),
-        //     end: Alignment(0.0, 1.0),
-        //     colors: [
-        //       const Color(0xff677bff),
-        //       const Color(0xff8b68ff),
-        //       const Color(0xff537bff)
-        //     ],
-        //     stops: [0.0, 0.201, 1.0],
-        //   ),
-        // ),
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(24.0),
         child: SafeArea(
           child: FormWidget(
-              controller: _controller,
-              node: node,
-              loginController: _loginController),
+            controller: _controller,
+            node: node,
+            loginController: _loginController,
+          ),
         ),
       ),
     );
@@ -66,6 +56,22 @@ class _FormWidgetState extends State<FormWidget> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Center(
+            child: SizedBox(
+              height: 120.0,
+              child: Image.asset('assets/images/logo.png'),
+            ),
+          ),
+          Center(
+            child: Text(
+              'KURTAR',
+              style: TextStyle(
+                fontSize: 26.0,
+                fontFamily: 'Lato',
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ),
           Flexible(
             child: SizedBox(
               height: 30.0,
@@ -75,11 +81,10 @@ class _FormWidgetState extends State<FormWidget> {
             'Hoşgeldin',
             style: TextStyle(
               fontFamily: 'Lato',
-              fontSize: 28,
+              fontSize: 18,
               fontWeight: FontWeight.w800,
             ),
           ),
-          Spacer(),
           TextFormField(
             onChanged: (value) {
               widget._controller.email.value = value;

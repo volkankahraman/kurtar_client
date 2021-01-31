@@ -77,6 +77,9 @@ class _MyHomePageState extends State<MyHomePage>
     setState(() {
       pageCount = page;
     });
+    if (pageCount == 2) {
+      print('hey');
+    }
   }
 
   String _animationName = 'idle';
