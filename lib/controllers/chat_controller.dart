@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 import 'package:kurtar_client/models/message.dart';
 
 class ChatController extends GetxController {
@@ -7,6 +8,7 @@ class ChatController extends GetxController {
 
   final TextEditingController tec = TextEditingController();
   final RxList<Message> messages = RxList();
+
   @override
   void onInit() {
     super.onInit();
@@ -17,11 +19,11 @@ class ChatController extends GetxController {
     super.onReady();
   }
 
-  void addMessage() {
+  void addMessage({text: String, senderType: String}) {
     messages.add(
       Message(
-        sender: this.user,
-        text: tec.text,
+        senderType: senderType,
+        text: text,
       ),
     );
     tec.clear();

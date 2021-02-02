@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/bubble_type.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:flutter_chat_bubble/clippers/chat_bubble_clipper_4.dart';
-
+import 'package:kurtar_client/controllers/user_controller.dart';
 import 'package:get/get.dart';
+import 'package:kurtar_client/app/modules/nearCitizens/controllers/near_citizens_controller.dart';
+import 'package:kurtar_client/controllers/beacon_controller.dart';
 import 'package:kurtar_client/controllers/chat_controller.dart';
 
 class ChatView extends GetView {
   ChatController cc = Get.put(ChatController());
+  final BeaconController bc = Get.put(BeaconController());
+  final NearCitizensController ncc = Get.put(NearCitizensController());
+  final UserController uc = Get.put(UserController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +26,11 @@ class ChatView extends GetView {
           shrinkWrap: true,
           itemCount: cc.messages.length,
           itemBuilder: (context, i) => ChatBubble(
-            clipper: ChatBubbleClipper4(type: BubbleType.sendBubble),
+            clipper: ChatBubbleClipper4(
+              type: cc.messages[i].senderType == 'SENDER'
+                  ? BubbleType.sendBubble
+                  : BubbleType.receiverBubble,
+            ),
             alignment: Alignment.topRight,
             margin: EdgeInsets.only(top: 20),
             backGroundColor: Colors.blue,
@@ -29,24 +39,11 @@ class ChatView extends GetView {
                 maxWidth: MediaQuery.of(context).size.width * 0.7,
               ),
               child: Text(
-                cc.messages[i].text,
+                cc.messages[i].text + ' ' + cc.messages[i].senderType,
                 style: TextStyle(color: Colors.white),
               ),
             ),
           ),
-
-          // Container(
-          //   constraints: BoxConstraints.tightForFinite(),
-          //   decoration: BoxDecoration(
-          //     borderRadius: BorderRadius.circular(10),
-          //     boxShadow: [
-          //       BoxShadow(color: Colors.green, spreadRadius: 3),
-          //     ],
-          //   ),
-          //   height: 50.0,
-          //   width: 100.0,
-          //   child: Text('Selam'),
-          // )
         ),
       ),
       bottomNavigationBar: Row(
@@ -67,13 +64,28 @@ class ChatView extends GetView {
                   ),
                 ),
                 autofocus: true,
-                onFieldSubmitted: (_) {
-                  cc.addMessage();
+                onFieldSubmitted: (text) {
+                  cc.addMessage(text: text, senderType: 'SENDER');
+                  if (uc.user.value.userType == 'CITIZEN') {
+                    bc.sendMessage(text);
+                  } else {
+                    ncc.sendMessage(text);
+                  }
                 },
               ),
             ),
           ),
-          IconButton(icon: Icon(Icons.send), onPressed: cc.addMessage),
+          IconButton(
+            icon: Icon(Icons.send),
+            onPressed: () {
+              cc.addMessage(text: cc.tec.text, senderType: 'SENDER');
+              if (uc.user.value.userType == 'CITIZEN') {
+                bc.sendMessage(cc.tec.text);
+              } else {
+                ncc.sendMessage(cc.tec.text);
+              }
+            },
+          ),
         ],
       ),
     );

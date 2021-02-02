@@ -57,14 +57,16 @@ class RegisterController extends GetxController {
     print(phone);
     print(birthDate);
     print(password);
-    httpController.register(context,
-        email: email.value,
-        fullName: fullName.value,
-        // gender: _getGender(),
-        password: password.value,
-        // phone: phone.value,
-        username: username.value,
-        userType: userType);
+    httpController.register(
+      context,
+      email: email.value,
+      fullName: fullName.value,
+      // gender: _getGender(),
+      password: password.value,
+      // phone: phone.value,
+      username: username.value,
+      userType: userType.value == 'SAVER' ? 1 : 0,
+    );
   }
 
   selectMale(value) {

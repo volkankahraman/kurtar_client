@@ -64,7 +64,8 @@ class HomeBodyView extends GetView {
           ),
           Obx(
             () => Expanded(
-              flex: uc.user.value.userType == "CITIZEN" ? 5 : 3,
+              // flex: uc.user.value.userType == "CITIZEN" ? 5 : 4,
+              flex: uc.user.value.userType == "CITIZEN" ? 5 : 7,
               child: Container(
                 child: Text(''),
                 color: Colors.pink,

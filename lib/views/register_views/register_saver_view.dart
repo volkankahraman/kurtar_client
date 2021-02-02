@@ -35,7 +35,9 @@ class RegisterSaverView extends GetView {
                     print('$text');
                   },
                   onDone: (text) {
-                    Get.offNamed(Routes.REGISTERCITIZEN, arguments: "SAVER");
+                    Get.toNamed(Routes.REGISTERCITIZEN, arguments: "SAVER");
+
+                    // Get.offNamed(Routes.REGISTERCITIZEN, arguments: "SAVER");
                     // print("DONE CONTROLLER ${controller.text}");
                   },
                   // hasError: true,

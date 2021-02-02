@@ -13,9 +13,10 @@ class LoginFormController extends GetxController {
     super.onReady();
     if (box.hasData('firstOpen')) {
       if (box.read('firstOpen')) Get.toNamed(Routes.HOME);
-    } else {
-      Get.offNamed(Routes.INTRO);
     }
+    // else {
+    //   Get.offNamed(Routes.INTRO);
+    // }
   }
 
   @override

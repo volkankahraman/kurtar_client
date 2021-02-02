@@ -1,6 +1,6 @@
 class Message {
   String text;
-  String sender;
+  String senderType;
 
-  Message({this.text, this.sender});
+  Message({this.text, this.senderType});
 }
