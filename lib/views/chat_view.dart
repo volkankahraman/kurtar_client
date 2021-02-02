@@ -45,7 +45,7 @@ class ChatView extends GetView {
                 maxWidth: MediaQuery.of(context).size.width * 0.7,
               ),
               child: Text(
-                cc.messages[i].text + ' ' + cc.messages[i].senderType,
+                cc.messages[i].text,
                 style: TextStyle(color: Colors.white),
               ),
             ),

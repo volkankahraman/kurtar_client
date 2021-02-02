@@ -65,7 +65,7 @@ class RegisterController extends GetxController {
       password: password.value,
       // phone: phone.value,
       username: username.value,
-      userType: userType.value == 'SAVER' ? 1 : 0,
+      userType: userType.value,
     );
   }
 
