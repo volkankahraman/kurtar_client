@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kurtar_client/controllers/register_controller.dart';
+
 import 'package:kurtar_client/routes/app_pages.dart';
 import 'package:pin_code_text_field/pin_code_text_field.dart';
 
 class RegisterSaverView extends GetView {
-  final RegisterController rc = Get.put(RegisterController());
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +54,6 @@ class RegisterSaverView extends GetView {
                   highlightAnimationBeginColor: Colors.black,
                   highlightAnimationEndColor: Colors.white12,
                   keyboardType: TextInputType.number,
-                  controller: rc.tec,
                 ),
               ),
             ],

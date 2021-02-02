@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:kurtar_client/controllers/user_controller.dart';
@@ -27,6 +28,7 @@ class HttpController extends GetxController {
         print(resJson["user"]["userType"]);
         uc.user.value.userType = resJson["user"]["userType"];
         // uc.user.value.email = resJson["user"];
+        Fluttertoast.showToast(msg: 'Giriş Başarılı');
         Get.offAndToNamed(Routes.HOME);
 
         // SweetAlert.show(
@@ -64,21 +66,25 @@ class HttpController extends GetxController {
       "userType": userType
     }).then((response) {
       Map<String, dynamic> resJson = jsonDecode(response.body);
-
+      print(userType);
       // print(response.body);
       if (resJson["email"] != null) {
         // Get.offAndToNamed(Routes.HOME);
-        box.write('firstOpen', true);
+        Fluttertoast.showToast(msg: 'Üyelik Başarılı');
 
-        SweetAlert.show(
-          context,
-          title: "Üyelik Başarılı",
-          style: SweetAlertStyle.success,
-          onPress: (_) {
-            Get.offAndToNamed(Routes.HOME);
-            return _;
-          },
-        );
+        // uc.user.value.email = resJson["user"];
+        Get.offAndToNamed(Routes.LOGIN);
+
+        // SweetAlert.show(
+        //   context,
+        //   title: "Üyelik Başarılı",
+        //   style: SweetAlertStyle.success,
+        //   onPress: (_) {
+        //     // box.write('firstOpen', true);
+
+        //     return _;
+        //   },
+        // );
       } else {
         print(resJson["errors"]["fullName"]);
         SweetAlert.show(context,

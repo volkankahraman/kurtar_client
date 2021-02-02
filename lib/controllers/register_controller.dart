@@ -17,7 +17,7 @@ class RegisterController extends GetxController {
   final password = "".obs;
   DateTime initialDate = DateTime(2000);
   HttpController httpController = Get.put(HttpController());
-  TextEditingController tec = TextEditingController();
+
   PageController pageController = PageController();
 
   nextPage(context) {
@@ -54,6 +54,7 @@ class RegisterController extends GetxController {
     print(username);
     print(fullName);
     print(_getGender());
+    print(userType.value);
     print(phone);
     print(birthDate);
     print(password);
@@ -111,6 +112,7 @@ class RegisterController extends GetxController {
   @override
   void onReady() {
     super.onReady();
+    print(Get.arguments);
     if (Get.arguments != null) {
       this.userType.value = Get.arguments;
     } else {
