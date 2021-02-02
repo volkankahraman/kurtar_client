@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:kurtar_client/app/modules/nearCitizens/bindings/near_citizens_binding.dart';
+import 'package:kurtar_client/app/modules/nearCitizens/views/near_citizens_view.dart';
 import 'package:kurtar_client/bindings/add_helper_binding.dart';
 import 'package:kurtar_client/bindings/afad_info_web_binding.dart';
 import 'package:kurtar_client/bindings/afad_web_binding.dart';
@@ -144,6 +146,11 @@ class AppPages {
       name: Routes.TEST_SCREEN,
       page: () => TestScreenView(),
       binding: TestScreenBinding(),
+    ),
+    GetPage(
+      name: Routes.NEAR_CITIZENS,
+      page: () => NearCitizensView(),
+      binding: NearCitizensBinding(),
     ),
   ];
 }

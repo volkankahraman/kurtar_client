@@ -33,6 +33,17 @@ class WildfireView extends GetView<WildfireController> {
                     width: double.infinity,
                     height: 150.0,
                   ),
+                  Hero(
+                    tag: 'Yangın',
+                    child: Container(
+                      height: 200.0,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/wildfire.jpg'),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
                   Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Text(

@@ -35,7 +35,17 @@ class EarthQuakeView extends GetView<EarthQuakeController> {
                   width: double.infinity,
                   height: 130.0,
                 ),
-
+                Hero(
+                  tag: 'Deprem',
+                  child: Container(
+                    height: 200.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/earth_quake.jpg'),
+                          fit: BoxFit.cover),
+                    ),
+                  ),
+                ),
                 // Padding(
                 //   padding: const EdgeInsets.only(top: 15.0, left: 8.0),
                 //   child: Text(

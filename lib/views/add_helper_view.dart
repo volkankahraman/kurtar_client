@@ -60,22 +60,26 @@ class AddHelperView extends GetView<AddHelperController> {
                   )
                 ],
               ),
-              Obx(
-                () => ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: ahc.contacList.length,
-                  itemBuilder: (context, i) => ListTile(
-                    leading: Icon(Icons.person_add),
-                    title:
-                        Text(ahc.contacList[i].displayName ?? 'Bekleyiniz...'),
-                    subtitle: Text(
-                      (ahc.contacList[i].phones.length > 0)
-                          ? ahc.contacList[i].phones.first.value
-                          : '',
+              //Liste Scroll edilmiyorum
+              Expanded(
+                child: Obx(
+                  () => ListView.builder(
+                    physics: const AlwaysScrollableScrollPhysics(), // new
+                    shrinkWrap: true,
+                    itemCount: ahc.contacList.length,
+                    itemBuilder: (context, i) => ListTile(
+                      leading: Icon(Icons.person_add),
+                      title: Text(
+                          ahc.contacList[i].displayName ?? 'Bekleyiniz...'),
+                      subtitle: Text(
+                        (ahc.contacList[i].phones.length > 0)
+                            ? ahc.contacList[i].phones.first.value
+                            : '',
+                      ),
+                      onTap: () {
+                        ahc.setValueOfField(ahc.contacList[i]);
+                      },
                     ),
-                    onTap: () {
-                      ahc.setValueOfField(ahc.contacList[i]);
-                    },
                   ),
                 ),
               )

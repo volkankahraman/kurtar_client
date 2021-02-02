@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:kurtar_client/controllers/user_controller.dart';
 import 'package:kurtar_client/models/risk_message.dart';
 import 'package:kurtar_client/routes/app_pages.dart';
 import 'package:location/location.dart';
@@ -11,6 +12,7 @@ import 'package:get_storage/get_storage.dart';
 class HttpController extends GetxController {
   static const baseUrl = 'https://kurtar-server.herokuapp.com';
   final box = GetStorage();
+  final uc = Get.put(UserController());
 
   login(context, {username: String, password: String}) {
     http.post('$baseUrl/authentication', body: {
@@ -22,6 +24,9 @@ class HttpController extends GetxController {
 
       if (resJson["user"] != null) {
         box.write('firstOpen', true);
+        print(resJson["user"]["userType"]);
+        uc.user.value.userType = resJson["user"]["userType"];
+        // uc.user.value.email = resJson["user"];
         Get.offAndToNamed(Routes.HOME);
 
         // SweetAlert.show(

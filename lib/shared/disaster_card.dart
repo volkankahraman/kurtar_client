@@ -21,17 +21,20 @@ class DisasterCard extends StatelessWidget {
           Expanded(
             child: InkWell(
               onTap: onPressed,
-              child: Container(
-                width: 80,
-                height: 60,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: assetImage,
-                    fit: BoxFit.cover,
-                  ),
-                  color: Colors.grey,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(8),
+              child: Hero(
+                tag: title,
+                child: Container(
+                  width: 80,
+                  height: 60,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: assetImage,
+                      fit: BoxFit.cover,
+                    ),
+                    color: Colors.grey,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8),
+                    ),
                   ),
                 ),
               ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kurtar_client/controllers/drawerController.dart';
+import 'package:kurtar_client/controllers/user_controller.dart';
 
 import '../routes/app_pages.dart';
 
@@ -9,6 +10,7 @@ class DrawerView extends GetView {
 
   @override
   Widget build(BuildContext context) {
+    final uc = Get.put(UserController());
     return Drawer(
       child: ListView(
         children: [
@@ -32,11 +34,67 @@ class DrawerView extends GetView {
             subtitle:
                 controller.theme.value ? Text('Koyu Tema') : Text('Açık Tema'),
           ),
+          Obx(
+            () => uc.user.value.userType == "CITIZEN"
+                ? ListTile(
+                    leading: Icon(Icons.message),
+                    title: Text('Acil Durum Mesajı Belirle'),
+                    onTap: () {
+                      Get.defaultDialog(
+                        radius: 8.0,
+                        confirm: ConstrainedBox(
+                          constraints:
+                              const BoxConstraints(minWidth: double.infinity),
+                          child: RaisedButton(
+                            onPressed: () {
+                              Get.close(1);
+                            },
+                            child: Text('Kaydet'),
+                          ),
+                        ),
+                        titleStyle: TextStyle(height: 1.8),
+                        title: 'Mesaj Ekle',
+                        content: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              TextField(
+                                decoration: InputDecoration(
+                                  labelText: 'Mesaj',
+                                ),
+                                onSubmitted: (value) {
+                                  Get.close(1);
+                                },
+                                autofocus: true,
+                                textCapitalization:
+                                    TextCapitalization.sentences,
+                              )
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  )
+                : SizedBox(),
+          ),
           ListTile(
             leading: Icon(Icons.info),
             title: Text('Hakkında'),
             onTap: () {
-              Get.toNamed(Routes.INTRO);
+              Get.defaultDialog(
+                title: 'Hakkında',
+                content: Container(
+                  padding: EdgeInsets.only(
+                    top: 20.0,
+                    left: 8,
+                    right: 8,
+                    bottom: 20.0,
+                  ),
+                  child: Text(
+                    'Afet anında hayati tehlikede olan insanlar çevresine işaret ışığı(beacon) gibi konum ve bilinmesi gereken bilgileri yayınlayacaktır. Aynı zamanda yakınlara, gerekli kurumlara ve belirlenen  nsanlara bu bilgileri iletecektir.',
+                  ),
+                ),
+              );
             },
           ),
           ListTile(

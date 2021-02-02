@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:kurtar_client/controllers/home_controller.dart';
+import 'package:kurtar_client/controllers/user_controller.dart';
 import 'package:kurtar_client/routes/app_pages.dart';
 import 'package:kurtar_client/shared/banner_body.dart';
 import 'package:kurtar_client/shared/banner_title.dart';
@@ -11,6 +12,7 @@ class PanelView extends GetView {
   PanelView(this.sc);
   final ScrollController sc;
   final HomeController hc = Get.put(HomeController());
+  final uc = Get.put(UserController());
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +70,13 @@ class PanelView extends GetView {
                     },
                   ),
                   DisasterCard(
+                    title: 'Çığ',
+                    assetImage: AssetImage('assets/images/snowslide.jpg'),
+                    onPressed: () {
+                      Get.toNamed(Routes.SNOWSLIDE);
+                    },
+                  ),
+                  DisasterCard(
                     title: 'Tsunami',
                     assetImage: AssetImage('assets/images/tsunami.jpg'),
                     onPressed: () {
@@ -99,56 +108,60 @@ class PanelView extends GetView {
           Padding(
             padding: const EdgeInsets.only(
                 left: 30.0, top: 10.0, right: 30.0, bottom: 10.0),
-            child: Row(
-              children: [
-                RaisedButton(
-                  color: Colors.red[500],
-                  onPressed: () {
-                    Get.toNamed(Routes.ADD_HELPER);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 9.0, vertical: 16.0),
-                    child: Column(
+            child: Obx(
+              () => uc.user.value.userType == "CITIZEN"
+                  ? Row(
                       children: [
-                        Icon(
-                          Icons.person_add,
-                          size: 36.0,
+                        RaisedButton(
+                          color: Colors.red[500],
+                          onPressed: () {
+                            Get.toNamed(Routes.ADD_HELPER);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 9.0, vertical: 16.0),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.person_add,
+                                  size: 36.0,
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text('Acil Durum Kişileri'),
+                              ],
+                            ),
+                          ),
                         ),
-                        SizedBox(
-                          height: 10.0,
+                        Spacer(),
+                        RaisedButton(
+                          onPressed: () {
+                            Get.toNamed(Routes.DISASTER_BAG);
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 17.0, vertical: 8.0),
+                            child: Column(
+                              children: [
+                                Icon(
+                                  Icons.shopping_bag,
+                                  size: 36.0,
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text(
+                                  'Afet ve Acil\nDurum Çantası',
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                        Text('Acil Durum Kişileri'),
                       ],
-                    ),
-                  ),
-                ),
-                Spacer(),
-                RaisedButton(
-                  onPressed: () {
-                    Get.toNamed(Routes.DISASTER_BAG);
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 17.0, vertical: 8.0),
-                    child: Column(
-                      children: [
-                        Icon(
-                          Icons.shopping_bag,
-                          size: 36.0,
-                        ),
-                        SizedBox(
-                          height: 10.0,
-                        ),
-                        Text(
-                          'Afet ve Acil\nDurum Çantası',
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+                    )
+                  : SizedBox(),
             ),
           ),
           BannerTitle(text: 'En Son Depremler'),
@@ -170,7 +183,7 @@ class PanelView extends GetView {
             ),
           ),
           SizedBox(
-            height: 100.0,
+            height: 50.0,
           ),
         ],
       ),

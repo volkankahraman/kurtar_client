@@ -23,4 +23,5 @@ abstract class Routes {
   static const ADD_HELPER = '/add-helper';
   static const TEST_SCREEN = '/test-screen';
   static const HOME_TEST = '/home-test';
+  static const NEAR_CITIZENS = '/near-citizens';
 }

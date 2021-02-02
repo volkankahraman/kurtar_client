@@ -33,6 +33,11 @@ class SnowslideView extends GetView<SnowslideController> {
                     width: double.infinity,
                     height: 150.0,
                   ),
+                  Hero(
+                    tag: 'Çığ',
+                    child: Image.asset('assets/images/snowslide.jpg',
+                        fit: BoxFit.cover),
+                  ),
                   ListItem(
                     text:
                         'Çığ riskine karşı nasıl hazırlanacağınızı ve korunacağınızı öğrenebileceğiniz eğitim programlarına katılın. İlk yardım vb. tamamlayıcı eğitimleri de alın.',

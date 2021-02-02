@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_nearby_connections/flutter_nearby_connections.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -9,10 +10,53 @@ import 'package:get/get.dart';
 class TestScreenController extends GetxController {
   final view = "first".obs;
   NearbyService nearbyService;
+
   StreamSubscription subscription;
   StreamSubscription receivedDataSubscription;
 
   bool isInit = false;
+
+  String getStateName(SessionState state) {
+    switch (state) {
+      case SessionState.notConnected:
+        return "disconnected";
+      case SessionState.connecting:
+        return "waiting";
+      default:
+        return "connected";
+    }
+  }
+
+  String getButtonStateName(SessionState state) {
+    switch (state) {
+      case SessionState.notConnected:
+      case SessionState.connecting:
+        return "Connect";
+      default:
+        return "Disconnect";
+    }
+  }
+
+  Color getStateColor(SessionState state) {
+    switch (state) {
+      case SessionState.notConnected:
+        return Colors.black;
+      case SessionState.connecting:
+        return Colors.grey;
+      default:
+        return Colors.green;
+    }
+  }
+
+  Color getButtonColor(SessionState state) {
+    switch (state) {
+      case SessionState.notConnected:
+      case SessionState.connecting:
+        return Colors.green;
+      default:
+        return Colors.red;
+    }
+  }
 
   void startRecieverView() {
     view.value = 'browser';

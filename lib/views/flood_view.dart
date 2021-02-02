@@ -32,6 +32,17 @@ class FloodView extends GetView<FloodController> {
                     width: double.infinity,
                     height: 150.0,
                   ),
+                  Hero(
+                    tag: 'Sel',
+                    child: Container(
+                      height: 200.0,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage('assets/images/flood.jpg'),
+                            fit: BoxFit.cover),
+                      ),
+                    ),
+                  ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(

@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:kurtar_client/controllers/intro_controller.dart';
 import 'package:kurtar_client/routes/app_pages.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:get_storage/get_storage.dart';
 
@@ -73,12 +74,13 @@ class _MyHomePageState extends State<MyHomePage>
     super.reassemble();
   }
 
-  void pageTracker(int page) {
+  void pageTracker(int page) async {
     setState(() {
       pageCount = page;
     });
     if (pageCount == 2) {
-      print('hey');
+      await Permission.location.request();
+      await Permission.contacts.request();
     }
   }
 
