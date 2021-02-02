@@ -68,8 +68,8 @@ class NearCitizensController extends GetxController {
     receivedDataSubscription =
         nearbyService.dataReceivedSubscription(callback: (data) {
       // print("dataReceivedSubscription: ${jsonEncode(data)}");
-      Fluttertoast.showToast(msg: data.message);
-      ch.addMessage(senderType: 'RECIEVER', text: data.message);
+      Fluttertoast.showToast(msg: jsonEncode(data));
+      ch.addMessage(senderType: 'RECIEVER', text: jsonEncode(data));
     });
   }
 

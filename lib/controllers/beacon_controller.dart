@@ -6,19 +6,20 @@ import 'package:flutter_nearby_connections/flutter_nearby_connections.dart';
 import 'package:flutter_sms/flutter_sms.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kurtar_client/controllers/chat_controller.dart';
+import 'package:kurtar_client/controllers/user_controller.dart';
 
 import 'package:get/get.dart';
 
 class BeaconController extends GetxController {
   final isChatActive = false.obs;
-  String message = "This is a test message!";
-  List<String> recipents = ["1234567890", "5556787676"];
+
   //Nearby api
   NearbyService nearbyService;
   final selectedDevice = Device('', '', 0).obs;
   StreamSubscription receivedDataSubscription;
 
   ChatController ch = Get.put(ChatController());
+  UserController uc = Get.put(UserController());
 
   @override
   void onInit() {
@@ -26,7 +27,9 @@ class BeaconController extends GetxController {
   }
 
   void sendSms() async {
-    String _result = await sendSMS(message: message, recipients: recipents)
+    print(uc.user.value.recipents);
+    String _result = await sendSMS(
+            message: uc.user.value.message, recipients: uc.user.value.recipents)
         .catchError((onError) {
       print(onError);
     });
@@ -102,8 +105,8 @@ class BeaconController extends GetxController {
 
     receivedDataSubscription =
         nearbyService.dataReceivedSubscription(callback: (data) {
-      Fluttertoast.showToast(msg: data.message);
-      ch.addMessage(senderType: 'RECIEVER', text: data.message);
+      Fluttertoast.showToast(msg: jsonEncode(data));
+      ch.addMessage(senderType: 'RECIEVER', text: jsonEncode(data));
     });
   }
 

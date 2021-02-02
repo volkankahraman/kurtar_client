@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:kurtar_client/controllers/drawerController.dart';
 import 'package:kurtar_client/controllers/user_controller.dart';
 
-import '../routes/app_pages.dart';
-
 class DrawerView extends GetView {
   final DrawerCustomController controller = Get.put(DrawerCustomController());
 
@@ -63,6 +61,7 @@ class DrawerView extends GetView {
                                   labelText: 'Mesaj',
                                 ),
                                 onSubmitted: (value) {
+                                  uc.user.value.message = value;
                                   Get.close(1);
                                 },
                                 autofocus: true,

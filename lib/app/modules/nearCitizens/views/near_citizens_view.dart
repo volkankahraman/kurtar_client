@@ -9,46 +9,46 @@ class NearCitizensView extends GetView<NearCitizensController> {
   final NearCitizensController ncc = Get.find();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Cankurtaran Paneli'),
-        centerTitle: true,
-      ),
-      body: Obx(
-        () => ncc.isChatActive.value
-            ? ChatView()
-            : ncc.isFounded.value == false
-                ? Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        width: double.infinity,
-                      ),
-                      SvgPicture.asset('assets/images/empty.svg'),
-                      Text(
-                        'Şuan çevrende kazazede bulunmuyor',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
-                  )
-                : ListView.builder(
-                    itemCount: ncc.connectedDevices.length,
-                    itemBuilder: (context, i) {
-                      return ListTile(
-                        leading: Icon(
-                          Icons.person,
-                          size: 42.0,
+    return Obx(
+      () => ncc.isChatActive.value
+          ? ChatView()
+          : Scaffold(
+              appBar: AppBar(
+                title: Text('Cankurtaran Paneli'),
+                centerTitle: true,
+              ),
+              body: ncc.isFounded.value == false
+                  ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
                         ),
-                        title: Text('Kazazede'),
-                        subtitle: Text('Yakında'),
-                        onTap: () {
-                          ncc.connectDevice(ncc.connectedDevices[i]);
-                        },
-                      );
-                    },
-                  ),
-      ),
+                        SvgPicture.asset('assets/images/empty.svg'),
+                        Text(
+                          'Şuan çevrende kazazede bulunmuyor',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    )
+                  : ListView.builder(
+                      itemCount: ncc.connectedDevices.length,
+                      itemBuilder: (context, i) {
+                        return ListTile(
+                          leading: Icon(
+                            Icons.person,
+                            size: 42.0,
+                          ),
+                          title: Text('Kazazede'),
+                          subtitle: Text('Yakında'),
+                          onTap: () {
+                            ncc.connectDevice(ncc.connectedDevices[i]);
+                          },
+                        );
+                      },
+                    ),
+            ),
     );
   }
 }

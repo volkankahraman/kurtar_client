@@ -9,7 +9,7 @@ import 'package:kurtar_client/controllers/beacon_controller.dart';
 import 'package:kurtar_client/controllers/chat_controller.dart';
 
 class ChatView extends GetView {
-  ChatController cc = Get.put(ChatController());
+  final ChatController cc = Get.put(ChatController());
   final BeaconController bc = Get.put(BeaconController());
   final NearCitizensController ncc = Get.put(NearCitizensController());
   final UserController uc = Get.put(UserController());
@@ -18,7 +18,9 @@ class ChatView extends GetView {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Çevrende Biri Var'),
+        title: uc.user.value.userType == 'CITIZEN'
+            ? Text('Çevrende Biri Var')
+            : Text('Kazazede'),
         centerTitle: true,
       ),
       body: Obx(
@@ -31,9 +33,13 @@ class ChatView extends GetView {
                   ? BubbleType.sendBubble
                   : BubbleType.receiverBubble,
             ),
-            alignment: Alignment.topRight,
+            alignment: cc.messages[i].senderType == 'SENDER'
+                ? Alignment.topRight
+                : Alignment.topLeft,
             margin: EdgeInsets.only(top: 20),
-            backGroundColor: Colors.blue,
+            backGroundColor: cc.messages[i].senderType == 'SENDER'
+                ? Colors.blue
+                : Colors.green,
             child: Container(
               constraints: BoxConstraints(
                 maxWidth: MediaQuery.of(context).size.width * 0.7,

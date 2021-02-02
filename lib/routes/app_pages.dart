@@ -16,7 +16,6 @@ import 'package:kurtar_client/bindings/intro_binding.dart';
 import 'package:kurtar_client/bindings/register_binding.dart';
 import 'package:kurtar_client/bindings/snowslide_binding.dart';
 import 'package:kurtar_client/bindings/terror_binding.dart';
-import 'package:kurtar_client/bindings/test_screen_binding.dart';
 import 'package:kurtar_client/bindings/tsunami_binding.dart';
 import 'package:kurtar_client/bindings/wildfire_binding.dart';
 import 'package:kurtar_client/views/add_helper_view.dart';
@@ -36,7 +35,6 @@ import 'package:kurtar_client/views/register_views/register_saver_view.dart';
 import 'package:kurtar_client/views/register_views/register_view.dart';
 import 'package:kurtar_client/views/snowslide_view.dart';
 import 'package:kurtar_client/views/terror_view.dart';
-import 'package:kurtar_client/views/test_screen_view.dart';
 import 'package:kurtar_client/views/tsunami_view.dart';
 import 'package:kurtar_client/views/wildfire_view.dart';
 
@@ -141,11 +139,6 @@ class AppPages {
       name: Routes.ADD_HELPER,
       page: () => AddHelperView(),
       binding: AddHelperBinding(),
-    ),
-    GetPage(
-      name: Routes.TEST_SCREEN,
-      page: () => TestScreenView(),
-      binding: TestScreenBinding(),
     ),
     GetPage(
       name: Routes.NEAR_CITIZENS,
